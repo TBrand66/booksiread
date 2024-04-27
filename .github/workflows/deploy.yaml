@@ -8,7 +8,7 @@ jobs:
   testdeployment:
     runs-on: ubuntu-latest
     steps: 
-      - name: "Greetings"
+      - name: "Hello World"
         run: |
           echo "--- Greetings ----"
       
@@ -21,7 +21,7 @@ jobs:
       
       - name: "Build a Docker image from the repo v1"
         run:  | 
-          docker build -t theoafactor/simplewebapp:${{ env.APP_VERSION }} frontend/
+          docker build -t abatan/simplewebapp:${{ env.APP_VERSION }} frontend/
 
       - name: "Log into Docker Hub"
         uses: docker/login-action@v3
@@ -31,7 +31,7 @@ jobs:
 
       - name: "Push to Docker Hub"
         run: |
-          docker push theoafactor/simplewebapp:${{ env.APP_VERSION }}
+          docker push abatan/simplewebapp:${{ env.APP_VERSION }}
 
       - name: "Install kubectl"
         uses: azure/setup-kubectl@v3
@@ -48,7 +48,7 @@ jobs:
 
       - name: "Connect to the cluster"
         run: |
-          aws eks update-kubeconfig --name testcluster
+          aws eks update-kubeconfig --name sat-cluster
 
 
       - name: "Install Helm"
