@@ -10,7 +10,7 @@ jobs:
     steps: 
       - name: "Hello World"
         run: |
-          echo "--- Greetings ----"
+          echo "--- Greetings Taiwo ----"
       
       - name: "Checkout"
         uses: actions/checkout@v4
