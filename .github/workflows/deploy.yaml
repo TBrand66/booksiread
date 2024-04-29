@@ -6,6 +6,7 @@ on:
 
 jobs: 
   testdeployment:
+    if: ${{ github.ref_name == 'tests' }}
     runs-on: ubuntu-latest
     steps: 
       - name: "Hello World"
@@ -48,7 +49,7 @@ jobs:
 
       - name: "Connect to the cluster"
         run: |
-          aws eks update-kubeconfig --name sat-cluster
+          aws eks update-kubeconfig --name monday-cluster
 
 
       - name: "Install Helm"
@@ -57,7 +58,7 @@ jobs:
 
       - name: "Use helm to install our charts"
         run: |
-          helm upgrade --install bik bik -f bik/values.yaml --set image.tag=${{ env.APP_VERSION}}
+          helm upgrade --install bik bik -f bik/values.yaml --set image.tag=${{ env.APP_VERSION}} --set replicaCount=3 --set canaryReplica=1
 
       
 

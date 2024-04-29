@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: canary-frontend
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.canaryReplica }}
   selector:
     matchLabels:
       app: frontend
