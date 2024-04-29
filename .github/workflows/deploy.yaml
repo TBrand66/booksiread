@@ -77,7 +77,7 @@ jobs:
       #     body: "New image build: ${{ env.APP_VERSION }}"
 
 
-  Canarydeployment:
+  Canary:
     if: ${{ github.ref_name == 'canary' }}
     runs-on: ubuntu-latest
     steps: 
