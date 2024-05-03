@@ -3,6 +3,7 @@ on:
     push: 
       branches: 
         - tests
+        - canary
 
 jobs: 
   testdeployment:
