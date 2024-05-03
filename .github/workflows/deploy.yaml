@@ -83,7 +83,7 @@ jobs:
     steps: 
       - name: "Hello World"
         run: |
-          echo "--- Greeting Taiwo Abatan ----"
+          echo "--- Greetings Taiwo Abatan ----"
       
       - name: "Checkout"
         uses: actions/checkout@v4
